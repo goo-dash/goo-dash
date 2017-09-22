@@ -9,7 +9,10 @@ script:
   - npm run test
   - codecov
   - npm run build
+  - deploy
 deploy:
   provider: firebase
   token:
     secure: $TOKEN
+  project: $PROJECT_ID
+  message: "Deploying to firebase..."
