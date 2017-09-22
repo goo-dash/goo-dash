@@ -7,3 +7,4 @@ script:
   - npm install
   - npm run test
   - codecov
+  - firebase deploy --only hosting --token $TOKEN --project $PROJECT_ID
