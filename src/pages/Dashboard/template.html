@@ -1,0 +1,5 @@
+<div v-if="displayLinks.length > 0" class="hello">
+  <div class="row" v-for="(group,groupKey) in displayLinks" :key="groupKey">
+    <goo-link :class="calcClass(group)" v-for="(link,linkKey) in group" :key="linkKey" v-model="group[linkKey]"></goo-link>
+  </div>
+</div>
