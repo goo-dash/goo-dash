@@ -9,6 +9,7 @@ export default {
   },
   data() {
     return {
+      link: this.value,
       wrapperClasses: [
         'link-wrapper',
         'center-align',
@@ -16,7 +17,6 @@ export default {
       textClasses: [
         'link-text',
       ],
-      link: this.value,
     };
   },
   computed: {
@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     goToLink() {
-      console.log('Going to link: ', this.link.url);
+      window.location = this.link.url;
     },
   },
 };

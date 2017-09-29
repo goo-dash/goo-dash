@@ -2,12 +2,14 @@ import axios from 'axios';
 import GooLink from '@/components/GooLink/GooLink';
 
 export default {
-  name: 'hello',
+  name: 'dashboard',
   components: {
     GooLink,
   },
   data() {
     return {
+      apiUrl: 'https://us-central1-goodash-8856b.cloudfunctions.net/api/links',
+      colChunkSize: 4,
       displayLinks: [],
     };
   },
@@ -15,31 +17,28 @@ export default {
 
   },
   methods: {
-    calcClass(linkGroup) {
-      const classes = [
+    calcColumnClass(linkGroup) {
+      return [
         'col',
         's12',
         `m${12 / linkGroup.length}`,
       ];
-      return classes;
     },
 
-    viewLinks() {
-      axios.get('https://us-central1-goodash-8856b.cloudfunctions.net/api/links')
+    prepLinks() {
+      axios.get(this.apiUrl)
       .then((response) => {
-        const chunkSize = 4;
-        for (let i = 0; i < response.data.length; i += chunkSize) {
+        for (let i = 0; i < response.data.length; i += this.colChunkSize) {
           const tempItems = response.data.slice();
-          this.displayLinks.push(tempItems.splice(i, (chunkSize)));
+          this.displayLinks.push(tempItems.splice(i, (this.colChunkSize)));
         }
       })
       .catch((error) => {
-        // eslint-disable-next-line
         console.log(error);
       });
     },
   },
-  mounted() {
-    this.viewLinks();
+  created() {
+    this.prepLinks();
   },
 };
