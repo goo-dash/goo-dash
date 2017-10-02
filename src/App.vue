@@ -1,6 +1,22 @@
 <template>
   <div id="app">
-    <header></header>
+    <header>
+      <nav v-if="showNav" class="white">
+        <div class="nav-wrapper">
+          <a href="#" data-activates="mobile-demo" class="button-collapse teal-text"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><router-link class="teal-text" to="/">Home</router-link></li>
+            <li><router-link class="teal-text" to="/">Contribute</router-link></li>
+            <li><router-link class="teal-text" to="/authors">Authors</router-link></li>
+          </ul>
+          <ul class="side-nav" id="mobile-demo">
+            <li><router-link class="teal-text" to="/">Home</router-link></li>
+            <li><router-link class="teal-text" to="/">Contribute</router-link></li>
+            <li><router-link class="teal-text" to="/authors">Authors</router-link></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
     <main>
       <router-view></router-view>
     </main>
@@ -15,6 +31,15 @@
     name: 'app',
     components: {
       PageFooter,
+    },
+    computed: {
+      showNav() {
+        return !(this.$route.path === '/');
+      },
+    },
+    mounted() {
+      // eslint-disable-next-line
+      $('.button-collapse').sideNav();
     },
   };
 </script>
