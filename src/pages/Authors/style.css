@@ -1,0 +1,16 @@
+.row{
+  margin-bottom: 0 !important;
+}
+
+.card-panel{
+  min-height: 20vh;
+}
+
+.profile-image{
+  max-height: 150px;
+}
+
+.custom-vertical-align{
+  display: inline-flex;
+  align-items: center;
+}

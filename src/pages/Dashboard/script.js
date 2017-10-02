@@ -8,14 +8,11 @@ export default {
   },
   data() {
     return {
-      // apiUrl: 'https://us-central1-goodash-8856b.cloudfunctions.net/api/links',
-      apiUrl: ' http://localhost:3000/links',
+      apiUrl: 'https://us-central1-goodash-8856b.cloudfunctions.net/api/links',
       colChunkSize: 4,
       displayLinks: [],
+      showLinks: false,
     };
-  },
-  computed: {
-
   },
   methods: {
     calcColumnClass(linkGroup) {
@@ -33,9 +30,12 @@ export default {
           const tempItems = response.data.slice();
           this.displayLinks.push(tempItems.splice(i, (this.colChunkSize)));
         }
+        this.showLinks = true;
       })
       .catch((error) => {
         console.log(error);
+        // eslint-disable-next-line
+        Materialize.toast('Oops, links could not be loaded, please refresh your page...', 10000);
       });
     },
   },
