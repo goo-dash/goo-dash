@@ -3,6 +3,17 @@
   cursor: pointer;
   border: 1px solid #f3f3f3;
   padding-top: 60px !important;
+  transition: all 1s ease;
+}
+
+.link-wrapper.fullscreen {
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  transition: all 1s ease;
 }
 
 .link-image {
@@ -15,4 +26,9 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.loader {
+  width: 100%;
+  max-width: 100%;
 }

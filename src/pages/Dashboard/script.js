@@ -8,7 +8,8 @@ export default {
   },
   data() {
     return {
-      apiUrl: 'https://us-central1-goodash-8856b.cloudfunctions.net/api/links',
+      // apiUrl: 'https://us-central1-goodash-8856b.cloudfunctions.net/api/links',
+      apiUrl: ' http://localhost:3000/links',
       colChunkSize: 4,
       displayLinks: [],
     };
