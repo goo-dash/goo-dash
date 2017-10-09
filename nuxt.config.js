@@ -45,6 +45,7 @@ module.exports = {
   modules: [
     ['@nuxtjs/google-analytics', { ua: 'UA-107774834-1' }],
     ['@nuxtjs/google-tag-manager', { id: 'GTM-KVGVRMB' }],
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    '@nuxtjs/component-cache'
   ]
 }
