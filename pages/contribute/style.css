@@ -1,0 +1,17 @@
+.goo-dash-form {
+  padding-top: 60px;
+  padding-bottom: 50px;
+}
+
+.goo-dash-form h2 {
+  text-align: center;
+  padding-bottom: 2px;
+}
+
+#image_preview {
+  padding: 1px;
+  height: 170px;
+  background-color: #d3d3d324;
+}
+
+/* https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg */
