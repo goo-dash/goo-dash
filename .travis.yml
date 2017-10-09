@@ -19,7 +19,7 @@ script:
   - codecov
 
 after_success:
-  - chmod +x ./deploy.sh; ./deploy.sh
+  - chmod +x ./tests.sh; ./tests.sh
 
 notifications:
   email:
