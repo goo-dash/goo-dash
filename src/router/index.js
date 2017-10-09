@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import animateScrollTo from 'animated-scroll-to';
 import Dashboard from '@/pages/Dashboard/Dashboard';
 import Authors from '@/pages/Authors/Authors';
+import Contribute from '@/pages/Contribute/Contribute';
 
 Vue.use(Router);
 
@@ -18,6 +19,11 @@ const router = new Router({
       path: '/authors',
       name: 'authors',
       component: Authors,
+    },
+    {
+      path: '/contribute',
+      name: 'contribute',
+      component: Contribute,
     },
   ],
 });

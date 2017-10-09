@@ -6,12 +6,12 @@
           <a href="#" data-activates="mobile-demo" class="button-collapse teal-text"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
             <li><router-link class="teal-text" to="/">Home</router-link></li>
-            <li><router-link class="teal-text" to="/">Contribute</router-link></li>
+            <li><router-link class="teal-text" to="/contribute">Contribute</router-link></li>
             <li><router-link class="teal-text" to="/authors">Authors</router-link></li>
           </ul>
           <ul class="side-nav" id="mobile-demo">
             <li><router-link class="teal-text" to="/">Home</router-link></li>
-            <li><router-link class="teal-text" to="/">Contribute</router-link></li>
+            <li><router-link class="teal-text" to="/contribute">Contribute</router-link></li>
             <li><router-link class="teal-text" to="/authors">Authors</router-link></li>
           </ul>
         </div>
