@@ -21,7 +21,9 @@ script:
   - npm run build
 
 after_success:
-  - firebase deploy --only hosting --token $TOKEN --project $PROJECT_ID
+  - echo 'Deployment triggered!'
+  - curl -s 'https://forge.laravel.com/servers/95687/sites/413691/deploy/http?token=$DEPLOY_TOKEN'
+  - echo 'Deployment triggered!'
 
 notifications:
   email:
