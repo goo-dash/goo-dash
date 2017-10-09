@@ -8,11 +8,18 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
   },
   "dependencies": {
     "nuxt": "^1.0.0-rc11",
-    "vuetify": "^0.16.1"
+    "vuetify": "^0.16.1",
+    "@nuxtjs/google-analytics": "^1.0.0",
+    "@nuxtjs/google-tag-manager": "^1.0.1",
+    "axios": "^0.16.2",
+    "materialize-css": "^0.100.2",
+    "nuxt": "^1.0.0-rc11"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -26,5 +33,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1"
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6"
   }
 }

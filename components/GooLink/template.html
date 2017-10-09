@@ -1,0 +1,5 @@
+<div :class="wrapperClasses" :style="wrapperStyles" @click="goToLink()">
+  <img class="link-image" :src="link.imageUrl">
+  <h6 :class="textClasses" :style="textStyles">{{ link.description }}</h6>
+  <img class="loader" v-if="showLoader" src="/img/loader.gif">
+</div>
