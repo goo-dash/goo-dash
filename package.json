@@ -18,7 +18,8 @@
     "@nuxtjs/sitemap": "0.0.3",
     "axios": "^0.16.2",
     "materialize-css": "^0.100.2",
-    "nuxt": "^1.0.0-rc11"
+    "nuxt": "^1.0.0-rc11",
+    "vee-validate": "^2.0.0-rc.18"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",

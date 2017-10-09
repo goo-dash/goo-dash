@@ -13,6 +13,10 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  plugins: [
+    '~plugins/vee-validate.js',
+    // '~plugins/global-components.js'
+  ],
   /*
   ** Customize the progress bar color
   */
@@ -34,7 +38,7 @@ module.exports = {
         })
       }
     },
-    vendor: ['axios', 'materialize-css']
+    vendor: ['axios', 'materialize-css', 'vee-validate']
   },
 
   css: [

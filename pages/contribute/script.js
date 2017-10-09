@@ -1,10 +1,12 @@
 import axios from 'axios'
 import GooLink from '@/components/GooLink/GooLink'
+import VeeValidate from 'vee-validate';
 
 export default {
   name: 'contributore',
   components: {
-    GooLink
+    GooLink,
+    VeeValidate
   },
   data () {
     return {
@@ -18,17 +20,25 @@ export default {
     }
   },
   methods: {
+    validateBeforeSubmit(e) {
+      this.$validator.validateAll().then(x => {
+        console.log(x)
+      }).catch(e => {
+        console.log(e)
+      })
+    },
     submit(link) {
       let url = 'https://us-central1-goodash-8856b.cloudfunctions.net/api/links/';
-      axios({
-        method: 'post',
-        url: url,
-        data: link,
-      }).then(function(response){
-        this.$router.push('/');
-      }).catch(function(err) {
-        console.log(err);
-      })
+      Materialize.toast('Thanks for contributing', 4000);
+      // axios({
+      //   method: 'post',
+      //   url: url,
+      //   data: link,
+      // }).then(function(response){
+      //   this.$router.push('/');
+      // }).catch(function(err) {
+      //   console.log(err);
+      // });
     },
     imageUpload (event) {
       let input = event.target;

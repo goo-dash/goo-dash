@@ -40,8 +40,9 @@
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder='Your email' id="email" type="email" class="validate" name='link.contributorsEmail' v-model="link.contributorsEmail">
+          <input placeholder='Your email' id="email" v-validate="'required|email'"  type="email" class="validate" name='link.contributorsEmail' v-model="link.contributorsEmail">
           <label for="email">Email</label>
+          <span v-show="errors.has('link.contributorsEmail')" class="form-control-feedback">{{ errors.first('link.contributorsEmail') }}</span>
         </div>
       </div>
       <div class='row'>
@@ -52,7 +53,7 @@
       </div>
       <div class='row'>
           <div class="input-field col s12">
-              <a @click="submit(link)" class="btn waves-effect waves-light" name="action">Submit
+              <a @click="validateBeforeSubmit(link)" class="btn waves-effect waves-light" name="action">Submit
                   <i class="material-icons right">send</i>
               </a>
           </div>
