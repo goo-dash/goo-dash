@@ -10,12 +10,9 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'A consolidated list of Google Consoles/Dashboards' }
     ],
     link: [
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' },
-      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css' },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  // <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   /*
   ** Customize the progress bar color
   */
@@ -42,7 +39,7 @@ module.exports = {
 
   css: [
     // 'materialize-css',
-    // '@/node_modules/materialize-css/dist/css/materialize.css'
+    '@/node_modules/materialize-css/dist/css/materialize.css'
   ],
 
   modules: [
