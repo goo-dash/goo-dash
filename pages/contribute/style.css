@@ -14,4 +14,13 @@
   background-color: #d3d3d324;
 }
 
+/*
+input[type=color] {
+  border:  0;
+  margin:  0;
+  width:  110%;
+  height:  110%;
+  padding:  0;
+}
+
 /* https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg */

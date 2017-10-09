@@ -3,28 +3,42 @@ import GooLink from '@/components/GooLink/GooLink'
 
 export default {
   name: 'contributore',
+  components: {
+    GooLink
+  },
   data () {
     return {
+      link : {
+        backgroundColor: '',
+        description: '',
+        name: '',
+        url: '',
+        imageUrl: ''
+      }
     }
   },
   methods: {
-    imageUrl (event) {
-      var input = event.target;
-
-      var vm = $('#image_preview');
-      vm.attr('src', input.value);
+    submit(link) {
+      let url = 'https://us-central1-goodash-8856b.cloudfunctions.net/api/links/';
+      axios({
+        method: 'post',
+        url: url,
+        data: link,
+      }).then(function(response){
+        this.$router.push('/');
+      }).catch(function(err) {
+        console.log(err);
+      })
     },
     imageUpload (event) {
-      var input = event.target;
+      let input = event.target;
       if(input.files && input.files[0]) {
-        var reader = new FileReader();
+        let reader = new FileReader();
 
-        var vm = $('#image_preview');
-
+        let vm = this.link;
         reader.onload = function(e) {
-          vm.attr('src', e.target.result);
+          vm.imageUrl = e.target.result;
         }
-
         reader.readAsDataURL(input.files[0]);
       }
     },

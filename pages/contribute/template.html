@@ -4,41 +4,58 @@
     <form class="col s12">
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="https://deepmind.com/" id="url" type="url" class="validate">
+          <input placeholder="Name of the project" id="name" type="text" class="validate" v-model='link.name'>
+          <label for="name">Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input placeholder="https://deepmind.com/" id="url" type="url" class="validate" v-model='link.url'>
           <label for="url">URL</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <textarea placeholder='Description of the project' id="description" class="materialize-textarea" name='description'></textarea>
+          <textarea placeholder='Description of the project' id="description" class="materialize-textarea" v-model='link.description' name='description'></textarea>
           <label for="description">Description</label>
         </div>
       </div>
       <div class='row'>
         <div class="input-field col s4">
-          <input v-on:change='imageUrl' placeholder="https://deepmind.com/logo.png" id="logo_url" type="text" class="validate">
+          <input placeholder="https://deepmind.com/logo.png" id="logo_url" type="text" class="validate" v-model='link.imageUrl'>
           <label for="logo_url">Logo URL</label>
         </div>
-        <div class="file-field input-field col s4">
+        <div class='col s2 center-align'>
+          <h1>OR</h1>
+        </div>
+        <div class="file-field input-field col s3">
           <div class="btn">
-            <span>File</span>
-            <input v-on:change='imageUpload' type="file" accept='image/*'>
+            <span>Upload logo</span>
+            <input type="file" v-on:change='imageUpload' accept='image/*' name='link.imageUrl'>
           </div>
         </div>
-        <div class="input-field col s4">
-          <img id="image_preview" src="#" alt="" class="responsive-img"/>
-        </div>
+        <div class="file-field input-field col s3">
+            <a class="btn-flat btn-large">
+              <input type="color" name='link.backgroundColor' v-model='link.backgroundColor'>
+            </a>
+          </div>
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder='Your email' id="email" type="email" class="validate" name='email'>
+          <input placeholder='Your email' id="email" type="email" class="validate" name='link.contributorsEmail' v-model="link.contributorsEmail">
           <label for="email">Email</label>
         </div>
       </div>
       <div class='row'>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-          <i class="material-icons right">send</i>
-        </button>
+        <h2>Preview</h2>
+        <div class='col s6 center-align offset-s3'>
+            <goo-link  class="link-wrapper" v-model="link"></goo-link>
+        </div>
+      </div>
+      <div class='row'>
+          <div class="input-field col s12">
+              <a @click="submit(link)" class="btn waves-effect waves-light" name="action">Submit
+                  <i class="material-icons right">send</i>
+              </a>
+          </div>
       </div>
     </form>
   </div>
