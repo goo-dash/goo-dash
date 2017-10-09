@@ -11,17 +11,15 @@ branches:
     - master
 
 before_script:
-  - npm install -g firebase-tools
   - npm install -g
 
 script:
   - npm install
   - npm run test
   - codecov
-  - npm run build
 
 after_success:
-  - firebase deploy --only hosting --token $TOKEN --project $PROJECT_ID
+  "curl -s https://forge.laravel.com/servers/95687/sites/413691/deploy/http?token=$DEPLOY_TOKEN;"
 
 notifications:
   email:
