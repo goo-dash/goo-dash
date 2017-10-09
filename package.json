@@ -13,6 +13,7 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@nuxtjs/google-analytics": "^1.0.0",
     "axios": "^0.16.2",
     "materialize-css": "^0.100.2",
     "nuxt": "^1.0.0-rc11"

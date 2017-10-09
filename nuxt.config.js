@@ -43,5 +43,9 @@ module.exports = {
   css: [
     // 'materialize-css',
     // '@/node_modules/materialize-css/dist/css/materialize.css'
+  ],
+
+  modules: [
+    ['@nuxtjs/google-analytics', { ua: 'UA-107774834-1' }],
   ]
 }
