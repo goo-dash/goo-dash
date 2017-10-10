@@ -47,7 +47,7 @@
         }).catch((error) => {
           console.log(error)
           // eslint-disable-next-line
-          Materialize.toast('Oops, links could not be loaded, please refresh your page...', 10000)
+          Materialize.toast('Oops, links could not be loaded, please refresh your page or try again later.', 10000)
         })
       }
     },
