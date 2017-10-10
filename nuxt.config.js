@@ -3,7 +3,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'goo-dash',
+    title: 'Goo(gle) Dash(board)',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -49,6 +49,7 @@ module.exports = {
   modules: [
     ['@nuxtjs/google-analytics', { ua: 'UA-107774834-1' }],
     ['@nuxtjs/google-tag-manager', { id: 'GTM-KVGVRMB' }],
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    '@nuxtjs/component-cache'
   ]
 }
