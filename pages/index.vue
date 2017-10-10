@@ -1,10 +1,11 @@
 <template>
   <div>
-    <transition-group name="list" tag="p">
+    <img v-if="displayLinks.length <= 0" class="loader" src="/img/loader.gif">
+    <transition-group v-else name="list" tag="p">
       <div v-if="showLinks" class="row" v-for="(group,groupKey) in displayLinks" :key="groupKey">
         <goo-link :class="calcColumnClass(group)" v-for="(link,linkKey) in group" :key="linkKey" v-model="group[linkKey]"></goo-link>
       </div>
-      <img v-else class="loader" src="/static/img/loader.gif">
+      <img v-else class="loader" src="/img/loader.gif">
     </transition-group>
   </div>
 </template>
@@ -23,7 +24,8 @@
         apiUrl: 'https://us-central1-goodash-8856b.cloudfunctions.net/api/links',
         colChunkSize: 4,
         displayLinks: [],
-        showLinks: false
+        showLinks: false,
+        structuredData: {}
       }
     },
     methods: {
@@ -45,7 +47,7 @@
         }).catch((error) => {
           console.log(error)
           // eslint-disable-next-line
-          Materialize.toast('Oops, links could not be loaded, please refresh your page...', 10000)
+          Materialize.toast('Oops, links could not be loaded, please refresh your page or try again later.', 10000)
         })
       }
     },
