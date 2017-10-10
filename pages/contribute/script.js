@@ -21,17 +21,33 @@ export default {
   },
   methods: {
     checkUrl(event) {
-      console.log(event.target.value);
-
-      // let validator = this.$validator;
-      // const error = {
-      //   field:"url",
-      //   id:"_jfp0gbni4",
-      //   msg:"The url already exists.",
-      //   rule:"required",
-      //   scope:null
-      // }
-      // validator.errors.push(error);
+      // clearing all the errors
+      this.$validator.errors.items = [];
+      let validator = this.$validator;
+      let url = 'https://us-central1-goodash-8856b.cloudfunctions.net/api/links/check';
+      const error = {
+        field:"url",
+        id:"_jfp0gbni4",
+        msg:"The url already exists.",
+        rule:"required",
+        scope:null
+      }
+      if (event.target.value.length > 0) {
+        let payload = {
+          url: event.target.value
+        };
+        axios({
+          method: 'post',
+          url: url,
+          data: payload,
+        }).then(function(response){
+          if(response.status != 200) {
+            validator.errors.push(error);        
+          }
+        }).catch(function(err) {
+          validator.errors.items.push(error);
+        })
+      }
     },
     validateBeforeSubmit(link) {
       let router = this.$router;
@@ -47,7 +63,6 @@ export default {
             url: url,
             data: link,
           }).then(function(response){
-            cosole.log(response);
             if(response.status == 201) {
               router.push('/');
               Materialize.toast('Thanks for contributing', 4000);

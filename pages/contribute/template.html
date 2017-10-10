@@ -6,12 +6,12 @@
           <form class="col s12">
             <div class="row">
               <div class="input-field col s12">
-                <input id="name" type="text" class="validate" name='name' v-model='link.name' v-validate="'required|alpha'" :class="{'input': true, 'goo-field-danger': errors.has('name') }" required>
+                <input id="name" type="text" class="validate" name='name' v-model='link.name' v-validate="'required|alpha_spaces'" :class="{'input': true, 'goo-field-danger': errors.has('name') }" required>
                 <span v-show="errors.has('name')" class="goo-danger">{{ errors.first('name') }}</span>
                 <label for="name">Name</label>
               </div>
               <div class="input-field col s12">
-                <input id="url" v-on:change="checkUrl" type="url" class="validate" name='url' v-model='link.url' v-validate="'required|url'" :class="{'input': true, 'goo-field-danger': errors.has('url') }" required>
+                <input id="url" v-on:change='checkUrl' type="url" class="validate" name='url' v-model='link.url' v-validate="'required|url'" :class="{'input': true, 'goo-field-danger': errors.has('url') }" required>
                 <span v-show="errors.has('url')" class="goo-danger">{{ errors.first('url') }}</span>
                 <label for="url" >URL</label>
               </div>
@@ -24,16 +24,16 @@
               </div>
             </div>
             <div class='row'>
-              <div class="input-field col s4">
+              <!-- div class="input-field col s4">
                 <input id="logo_url" type="text" v-model='link.imageUrl' required>
                 <label for="logo_url">Logo URL</label>
               </div>
               <div class='col s2 center-align'>
                 <h5>OR</h5>
-              </div>
-              <div class="file-field input-field col s3">
-                <div class="btn">
-                  <span>Upload logo</span>
+              </div -->
+              <div class="file-field input-field col s5">
+                <div class="btn-large">
+                  <span>Choose file</span>
                   <input type="file" v-on:change='imageUpload' accept='image/*' name='link.imageUrl'>
                 </div>
               </div>
