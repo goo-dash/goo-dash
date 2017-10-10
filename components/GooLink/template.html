@@ -1,7 +1,7 @@
 <div itemscope itemtype="http://schema.org/WebSite" :class="wrapperClasses" :style="wrapperStyles" @click="goToLink()">
   <img itemprop="image" class="link-image" :src="link.imageUrl">
-  <h5 itemprop="name" :class="textClasses" :style="textStyles">{{ link.name }}</h5>
+  <h5 itemprop="name" :class="textClasses" style="color: grey;">{{ link.name }}</h5>
   <h6 itemprop="description" :class="textClasses" :style="textStyles">{{ link.description }}</h6>
-  <img class="loader" v-if="showLoader" src="/img/loader.gif">
+  <img class="loader" v-if="showLoader" src="~/assets/img/loader.gif">
   <script type='application/ld+json' v-text='JSON.stringify(link.structuredData)'></script>
 </div>

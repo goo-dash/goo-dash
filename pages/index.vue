@@ -5,7 +5,7 @@
       <div v-if="showLinks" class="row" v-for="(group,groupKey) in displayLinks" :key="groupKey">
         <goo-link :class="calcColumnClass(group)" v-for="(link,linkKey) in group" :key="linkKey" v-model="group[linkKey]"></goo-link>
       </div>
-      <img v-else class="loader" src="/img/loader.gif">
+      <img v-else class="loader" src="~/assets/img/loader.gif">
     </transition-group>
   </div>
 </template>
