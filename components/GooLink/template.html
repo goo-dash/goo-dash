@@ -3,5 +3,5 @@
   <h5 itemprop="name" :class="textClasses" :style="textStyles">{{ link.name }}</h5>
   <h6 itemprop="description" :class="textClasses" :style="textStyles">{{ link.description }}</h6>
   <img class="loader" v-if="showLoader" src="/img/loader.gif">
-  <script type='application/ld+json' v-text='link.structuredData'></script>
+  <script type='application/ld+json' v-text='JSON.stringify(link.structuredData)'></script>
 </div>
