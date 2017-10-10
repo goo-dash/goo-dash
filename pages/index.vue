@@ -23,7 +23,8 @@
         apiUrl: 'https://us-central1-goodash-8856b.cloudfunctions.net/api/links',
         colChunkSize: 4,
         displayLinks: [],
-        showLinks: false
+        showLinks: false,
+        structuredData: {}
       }
     },
     methods: {

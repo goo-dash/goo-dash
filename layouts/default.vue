@@ -21,6 +21,7 @@
       <router-view></router-view>
     </main>
     <page-footer></page-footer>
+    <script type='application/ld+json' v-text='structuredData.applicationLogo'></script>
   </div>
 </template>
 
@@ -29,6 +30,18 @@
 
   export default {
     name: 'app',
+    data () {
+      return {
+        structuredData: {
+          applicationLogo: {
+            "@context": "http://schema.org", // eslint-disable-line
+            "@type": "Organization", // eslint-disable-line
+            "url": "https://goodash.xyz", // eslint-disable-line
+            "logo": "https://goodash.xyz/logo.svg" // eslint-disable-line
+          }
+        }
+      }
+    },
     components: {
       PageFooter
     },
