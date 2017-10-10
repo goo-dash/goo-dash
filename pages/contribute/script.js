@@ -20,12 +20,23 @@ export default {
     }
   },
   methods: {
+    checkUrl(event) {
+      console.log(event.target.value);
+
+      // let validator = this.$validator;
+      // const error = {
+      //   field:"url",
+      //   id:"_jfp0gbni4",
+      //   msg:"The url already exists.",
+      //   rule:"required",
+      //   scope:null
+      // }
+      // validator.errors.push(error);
+    },
     validateBeforeSubmit(link) {
       let router = this.$router;
       let validator = this.$validator;
       this.$validator.validateAll().then(x => {
-        console.log(this.$validator.errors.items);
-        console.log(x);
         if(!x){
           return;
         }
