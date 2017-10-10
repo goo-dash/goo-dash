@@ -1,6 +1,7 @@
 <template>
   <div>
-    <transition-group name="list" tag="p">
+    <img v-if="displayLinks.length <= 0" class="loader" src="/img/loader.gif">
+    <transition-group v-else name="list" tag="p">
       <div v-if="showLinks" class="row" v-for="(group,groupKey) in displayLinks" :key="groupKey">
         <goo-link :class="calcColumnClass(group)" v-for="(link,linkKey) in group" :key="linkKey" v-model="group[linkKey]"></goo-link>
       </div>
