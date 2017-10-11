@@ -13,6 +13,7 @@ export default {
     return {
       approvedLinks: [],
       pendingLinks: [],
+      removedLinks: [],
       isLoggedIn: false
     };
   },
@@ -46,6 +47,8 @@ export default {
             this.approvedLinks.push(response.data[i]);
           } else if(response.data[i].status === 'pending'){
             this.pendingLinks.push(response.data[i]);
+          } else if(response.data[i].status === 'removed'){
+            this.removedLinks.push(response.data[i]);
           }
         }
       }).catch(() => {
