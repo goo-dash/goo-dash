@@ -32,7 +32,8 @@
               <div class="row">
                 <div class="col s12 m4" v-for="(link,linkKey) in pendingLinks" :key="linkKey">
                   <goo-link v-model="pendingLinks[linkKey]"></goo-link>
-                  <a class="waves-effect waves-light btn flat btn-block teal lighten-3" @click="updateLink(pendingLinks[linkKey], 'approved')">approve</a>
+                  <a class="waves-effect waves-light btn flat btn-block-half teal lighten-3" @click="updateLink(pendingLinks[linkKey], 'approved')">approve</a>
+                  <a class="waves-effect waves-light btn flat btn-block-half teal lighten-3" @click="updateLink(pendingLinks[linkKey], 'removed')">remove</a>
                 </div>
               </div>
             </div>
