@@ -30,7 +30,7 @@
               <div class="row">
                 <div class="col s12 m4" v-for="(link,linkKey) in pendingLinks" :key="linkKey">
                   <goo-link v-model="pendingLinks[linkKey]"></goo-link>
-                  <a v-if="admin" class="waves-effect waves-light btn flat btn-block" @click="approveLink()">approve</a>
+                  <a v-if="admin" class="waves-effect waves-light btn flat btn-block" @click="approveLink(pendingLinks[linkKey])">approve</a>
                 </div>
               </div>
             </div>
