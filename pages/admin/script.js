@@ -17,10 +17,11 @@ export default {
     };
   },
   methods: {
-    approveLink(link) {
+    updateLink(link, status) {
+      link.status = status
       axios.put(`${config.apiUrl}/links/${link.id}`, link).then((response) => {
         // eslint-disable-next-line
-        Materialize.toast('Link Approved!', 10000)
+        Materialize.toast(`Link ${status} success!`, 10000)
       }).catch(() => {
         // eslint-disable-next-line
         Materialize.toast('Oops, links could not be loaded, please refresh your page or try again later.', 10000)
@@ -31,6 +32,9 @@ export default {
       if (result) {
         this.loadLinks();
         this.isLoggedIn = result;
+        $(document).ready(function(){
+          $('ul.tabs').tabs();
+        });
       }
     },
 

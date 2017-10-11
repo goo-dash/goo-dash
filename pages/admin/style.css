@@ -14,3 +14,7 @@
   display: inline-flex;
   align-items: center;
 }
+
+.btn-block{
+  width: 100%;
+}
