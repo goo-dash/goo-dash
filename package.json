@@ -18,8 +18,10 @@
     "@nuxtjs/google-tag-manager": "^1.0.1",
     "@nuxtjs/sitemap": "0.0.3",
     "axios": "^0.16.2",
+    "firebase": "^4.5.0",
     "materialize-css": "^0.100.2",
     "nuxt": "^1.0.0-rc11",
+    "promise-polyfill": "^6.0.2",
     "vee-validate": "^2.0.0-rc.18"
   },
   "devDependencies": {

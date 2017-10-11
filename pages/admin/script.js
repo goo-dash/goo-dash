@@ -1,16 +1,19 @@
 import axios from 'axios';
 import GooLink from '@/components/GooLink/GooLink';
+import Login from '@/components/Login/Login';
 import config from '@/utils/config';
 
 export default {
   name: 'admin-dashboard',
   components: {
     GooLink,
+    Login
   },
   data() {
     return {
       approvedLinks: [],
-      pendingLinks: []
+      pendingLinks: [],
+      isLoggedIn: false
     };
   },
   methods: {
@@ -22,6 +25,35 @@ export default {
         // eslint-disable-next-line
         Materialize.toast('Oops, links could not be loaded, please refresh your page or try again later.', 10000)
       })
+    },
+
+    handleLoginSuccess(result) {
+      if (result) {
+        this.loadLinks();
+        this.isLoggedIn = result;
+      }
+    },
+
+    loadLinks() {
+      // Get all the links
+      axios.get(`${config.apiUrl}/links`).then((response) => {
+        for(let i = 0; i < response.data.length; i++){
+          if(response.data[i].status === 'approved'){
+            this.approvedLinks.push(response.data[i]);
+          } else if(response.data[i].status === 'pending'){
+            this.pendingLinks.push(response.data[i]);
+          }
+        }
+      }).catch(() => {
+        // eslint-disable-next-line
+        Materialize.toast('Oops, links could not be loaded, please refresh your page or try again later.', 10000)
+      })
+    }
+  },
+  created() {
+    this.isLoggedIn = this.$store.state.session.valid;
+    if (this.isLoggedIn) {
+      this.loadLinks();
     }
   },
   mounted(){
@@ -29,18 +61,8 @@ export default {
       $('ul.tabs').tabs();
     });
 
-    // Get all the links
-    axios.get(`${config.apiUrl}/links`).then((response) => {
-      for(let i = 0; i < response.data.length; i++){
-        if(response.data[i].status === 'approved'){
-          this.approvedLinks.push(response.data[i]);
-        } else if(response.data[i].status === 'pending'){
-          this.pendingLinks.push(response.data[i]);
-        }
-      }
-    }).catch(() => {
-      // eslint-disable-next-line
-      Materialize.toast('Oops, links could not be loaded, please refresh your page or try again later.', 10000)
-    })
+    if(this.isLoggedIn) {
+      this.loadLinks();
+    }
   }
 };

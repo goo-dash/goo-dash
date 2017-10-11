@@ -15,6 +15,7 @@ module.exports = {
   },
   plugins: [
     '~plugins/vee-validate.js',
+    '~plugins/firebase.js',
     // '~plugins/global-components.js'
   ],
   /*

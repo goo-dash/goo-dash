@@ -1,5 +1,6 @@
 <div style="margin-top: 10px;">
-  <div class="row">
+  <login v-if="!isLoggedIn" v-on:loginsuccess="handleLoginSuccess"></login>
+  <div v-else class="row">
     <div class="col s12">
       <ul class="tabs">
         <li class="tab col s6"><a class="active" href="#approved">Approved</a></li>
@@ -14,7 +15,7 @@
               <div class="row">
                 <div class="col s12 m4" v-for="(link,linkKey) in approvedLinks" :key="linkKey">
                   <goo-link v-model="approvedLinks[linkKey]"></goo-link>
-                  <a v-if="admin" class="waves-effect waves-light btn flat btn-block">approve</a>
+                  <a class="waves-effect waves-light btn flat btn-block">remove</a>
                 </div>
               </div>
             </div>
@@ -30,7 +31,7 @@
               <div class="row">
                 <div class="col s12 m4" v-for="(link,linkKey) in pendingLinks" :key="linkKey">
                   <goo-link v-model="pendingLinks[linkKey]"></goo-link>
-                  <a v-if="admin" class="waves-effect waves-light btn flat btn-block" @click="approveLink(pendingLinks[linkKey])">approve</a>
+                  <a class="waves-effect waves-light btn flat btn-block" @click="approveLink(pendingLinks[linkKey])">approve</a>
                 </div>
               </div>
             </div>
