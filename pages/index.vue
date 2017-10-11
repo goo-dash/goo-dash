@@ -13,6 +13,7 @@
 <script>
   import axios from 'axios'
   import GooLink from '@/components/GooLink/GooLink'
+  import config from '@/utils/config'
 
   export default {
     name: 'dashboard',
@@ -21,7 +22,6 @@
     },
     data () {
       return {
-        apiUrl: 'https://us-central1-goodash-8856b.cloudfunctions.net/api/links',
         colChunkSize: 4,
         displayLinks: [],
         showLinks: false,
@@ -38,14 +38,13 @@
       },
 
       prepLinks () {
-        axios.get(this.apiUrl).then((response) => {
+        axios.get(`${config.apiUrl}/links?status=approved`).then((response) => {
           for (let i = 0; i < response.data.length; i += this.colChunkSize) {
             const tempItems = response.data.slice()
             this.displayLinks.push(tempItems.splice(i, (this.colChunkSize)))
           }
           this.showLinks = true
-        }).catch((error) => {
-          console.log(error)
+        }).catch(() => {
           // eslint-disable-next-line
           Materialize.toast('Oops, links could not be loaded, please refresh your page or try again later.', 10000)
         })
