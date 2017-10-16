@@ -8,7 +8,7 @@
           <a itemprop="url" class="links custom-vertical-align" :href="author.link"><i class="material-icons">link</i> {{ author.link }}</a><br>
           <a itemprop="email" class="links custom-vertical-align" :href="`mailto:${author.email}`"><i class="material-icons">email</i> {{ author.email }}</a>
         </div>
-        <script type='application/ld+json' v-text='JSON.stringify(author.structuredData)'></script>
+        <script type='application/ld+json' v-text='author.structuredData'></script>
       </div>
     </div>
   </div>
