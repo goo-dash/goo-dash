@@ -21,7 +21,7 @@
       <router-view></router-view>
     </main>
     <page-footer></page-footer>
-    <script type='application/ld+json' v-text='JSON.stringify(structuredData.applicationLogo)'></script>
+    <script type='application/ld+json' v-text='structuredData.applicationLogo'></script>
   </div>
 </template>
 
